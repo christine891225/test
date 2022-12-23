@@ -6,7 +6,9 @@
   "homepage": "https://christine891225.github.io/test/",
   "scripts": {
     "start": "cd frontend && yarn start",
-    "server": "cd backend && yarn server"
+    "server": "cd backend && yarn server",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "axios": "^1.1.3",
