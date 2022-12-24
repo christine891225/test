@@ -15,10 +15,14 @@ mongoose.connect(
 
 const app = express();
 if (process.env.NODE_ENV === "development") {
-  app.use(express.json());
+  // app.use(express.json());
   app.use(cors());
-  app.use('/', routes);
+  // app.use('/', routes);
 }
+
+app.get('/api', (req, res) => {
+  res.send('Hello, World!');
+});
 
 if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
@@ -29,9 +33,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const port = process.env.PORT || 4000;
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+
 app.listen(port, () =>
   console.log(`Example app listening on port ${port}!`),
 );
